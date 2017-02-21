@@ -1,0 +1,184 @@
+$date
+	Sat Feb 18 23:43:23 2017
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module FullAdder4_test $end
+$var wire 1 ! Carry_Out $end
+$var wire 4 " Sum [3:0] $end
+$var reg 1 # Carry_In $end
+$var reg 4 $ a [3:0] $end
+$var reg 4 % b [3:0] $end
+$var reg 1 & clk $end
+$scope module A1 $end
+$var wire 1 ' Carry_In $end
+$var wire 1 ! Carry_Out $end
+$var wire 1 ( Carry_Out1 $end
+$var wire 1 ) Carry_Out2 $end
+$var wire 1 * Carry_Out3 $end
+$var wire 4 + Sum [3:0] $end
+$var wire 4 , a [3:0] $end
+$var wire 4 - b [3:0] $end
+$scope module fa0 $end
+$var wire 1 ' CarryIn $end
+$var wire 1 ( CarryOut $end
+$var wire 1 . Sum $end
+$var wire 1 / a $end
+$var wire 1 0 b $end
+$upscope $end
+$scope module fa1 $end
+$var wire 1 ( CarryIn $end
+$var wire 1 ) CarryOut $end
+$var wire 1 1 Sum $end
+$var wire 1 2 a $end
+$var wire 1 3 b $end
+$upscope $end
+$scope module fa2 $end
+$var wire 1 ) CarryIn $end
+$var wire 1 * CarryOut $end
+$var wire 1 4 Sum $end
+$var wire 1 5 a $end
+$var wire 1 6 b $end
+$upscope $end
+$scope module fa3 $end
+$var wire 1 * CarryIn $end
+$var wire 1 ! CarryOut $end
+$var wire 1 7 Sum $end
+$var wire 1 8 a $end
+$var wire 1 9 b $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x9
+x8
+x7
+x6
+x5
+x4
+x3
+x2
+x1
+x0
+x/
+x.
+bx -
+bx ,
+bx +
+x*
+x)
+x(
+0'
+0&
+bx %
+bx $
+0#
+bx "
+x!
+$end
+#50
+07
+0!
+04
+0*
+01
+0)
+0.
+b0 "
+b0 +
+0(
+00
+03
+06
+09
+0/
+02
+05
+08
+b0 %
+b0 -
+b0 $
+b0 ,
+1&
+#100
+0&
+#150
+11
+b10 "
+b10 +
+1(
+10
+1/
+1&
+b1 %
+b1 -
+b1 $
+b1 ,
+#200
+0&
+#250
+17
+14
+b1110 "
+b1110 +
+19
+15
+1&
+b1001 %
+b1001 -
+b101 $
+b101 ,
+#300
+0&
+#350
+17
+0!
+14
+0*
+1.
+0(
+11
+b1111 "
+b1111 +
+0)
+16
+09
+0/
+12
+05
+18
+1&
+b101 %
+b101 -
+b1010 $
+b1010 ,
+#400
+0&
+#450
+1)
+1!
+0.
+1(
+14
+b1110 "
+b1110 +
+1*
+13
+19
+1/
+15
+1&
+b1111 %
+b1111 -
+b1111 $
+b1111 ,
+#500
+0&
+#550
+1&
