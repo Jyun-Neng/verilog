@@ -1,0 +1,49 @@
+structure:
+
+	module module_name
+	. // ports 
+	. // data type 
+	. // circuit function
+	endmodule
+
+port:
+
+	intput [bit size] port_name1,2;
+	output [bit size] port_name1,2;
+	inout  [bit size] port_name1,2;
+	
+	EX:
+		input [3:0] A, B; // port_A & port_B have 4 bits.
+
+	if we want to store the signal from the port, we should
+ 	declare "reg". otherwise it will default as "wire",
+	which cannot store the signal.	
+
+data type:
+
+	wire	EX:	wire b, c; // b & c are two wires.
+			wire a = b & c; // a is a wire resulted from
+					   b & c.
+			wire d = 1'b0; // d is a wire, and it's value
+					  is always 0. 
+	/*Be attention : a wire can only connect with one port.*/
+	
+	wand: wired-and. 
+	      It can connect two ports to a wire used "and" gate.
+	wor: wired-or.
+	      It can connect two ports to a wire used "or" gate.
+	
+	/*"wire" must be used with "assign".Moreover, it cannot be
+	  used in "always".*/	
+
+	reg	EX:	reg [3:0] z; // z is a register which have 4
+				        bits.
+	/*"reg" must be used in "always". It is always performed as 
+	  "z = b".*/
+
+timing control:
+	
+	always @()
+
+
+
