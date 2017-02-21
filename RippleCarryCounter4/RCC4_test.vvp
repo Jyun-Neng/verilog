@@ -1,0 +1,174 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 10;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x2590780 .scope module, "RCC4_test" "RCC4_test" 2 4;
+ .timescale -9 -10;
+v0x25b6a50_0 .var "clk", 0 0;
+RS_0x7f6d0d7c7288 .resolv tri, L_0x25b7970, L_0x25b7bc0, L_0x25b7ed0, L_0x25b8180;
+v0x25b7770_0 .net8 "q", 3 0, RS_0x7f6d0d7c7288; 4 drivers
+v0x25b77f0_0 .var "reset", 0 0;
+E_0x257e8e0 .event negedge, v0x25b6fb0_0;
+S_0x258fab0 .scope module, "rcc" "RCC4" 2 8, 3 3, S_0x2590780;
+ .timescale -9 -10;
+v0x25b74e0_0 .net "clk", 0 0, v0x25b6a50_0; 1 drivers
+v0x25b7560_0 .alias "q", 3 0, v0x25b7770_0;
+v0x25b75e0_0 .net "reset", 0 0, v0x25b77f0_0; 1 drivers
+L_0x25b7970 .part/pv v0x25b70d0_0, 0, 1, 4;
+L_0x25b7bc0 .part/pv v0x25b6900_0, 1, 1, 4;
+L_0x25b7c60 .part RS_0x7f6d0d7c7288, 0, 1;
+L_0x25b7ed0 .part/pv v0x25b61a0_0, 2, 1, 4;
+L_0x25b7f70 .part RS_0x7f6d0d7c7288, 1, 1;
+L_0x25b8180 .part/pv v0x25b5a30_0, 3, 1, 4;
+L_0x25b8260 .part RS_0x7f6d0d7c7288, 2, 1;
+S_0x25b6da0 .scope module, "tff0" "T_FF" 3 7, 4 3, S_0x258fab0;
+ .timescale -9 -10;
+L_0x25b7870 .functor NOT 1, v0x25b70d0_0, C4<0>, C4<0>, C4<0>;
+v0x25b7220_0 .alias "clk", 0 0, v0x25b74e0_0;
+v0x25b72d0_0 .net "d", 0 0, L_0x25b7870; 1 drivers
+v0x25b7380_0 .net "q", 0 0, v0x25b70d0_0; 1 drivers
+v0x25b7430_0 .alias "reset", 0 0, v0x25b75e0_0;
+S_0x25b6e90 .scope module, "dff" "D_FF" 4 7, 5 2, S_0x25b6da0;
+ .timescale -9 -10;
+v0x25b6fb0_0 .alias "clk", 0 0, v0x25b74e0_0;
+v0x25b7030_0 .alias "d", 0 0, v0x25b72d0_0;
+v0x25b70d0_0 .var "q", 0 0;
+v0x25b7170_0 .alias "reset", 0 0, v0x25b75e0_0;
+E_0x25b6f80/0 .event negedge, v0x25b6fb0_0;
+E_0x25b6f80/1 .event posedge, v0x25b5ad0_0;
+E_0x25b6f80 .event/or E_0x25b6f80/0, E_0x25b6f80/1;
+S_0x25b65d0 .scope module, "tff1" "T_FF" 3 8, 4 3, S_0x258fab0;
+ .timescale -9 -10;
+L_0x25b7a80 .functor NOT 1, v0x25b6900_0, C4<0>, C4<0>, C4<0>;
+v0x25b6ae0_0 .net "clk", 0 0, L_0x25b7c60; 1 drivers
+v0x25b6b90_0 .net "d", 0 0, L_0x25b7a80; 1 drivers
+v0x25b6c40_0 .net "q", 0 0, v0x25b6900_0; 1 drivers
+v0x25b6cf0_0 .alias "reset", 0 0, v0x25b75e0_0;
+S_0x25b66c0 .scope module, "dff" "D_FF" 4 7, 5 2, S_0x25b65d0;
+ .timescale -9 -10;
+v0x25b67e0_0 .alias "clk", 0 0, v0x25b6ae0_0;
+v0x25b6860_0 .alias "d", 0 0, v0x25b6b90_0;
+v0x25b6900_0 .var "q", 0 0;
+v0x25b69a0_0 .alias "reset", 0 0, v0x25b75e0_0;
+E_0x25b67b0/0 .event negedge, v0x25b67e0_0;
+E_0x25b67b0/1 .event posedge, v0x25b5ad0_0;
+E_0x25b67b0 .event/or E_0x25b67b0/0, E_0x25b67b0/1;
+S_0x25b5e90 .scope module, "tff2" "T_FF" 3 9, 4 3, S_0x258fab0;
+ .timescale -9 -10;
+L_0x25b7de0 .functor NOT 1, v0x25b61a0_0, C4<0>, C4<0>, C4<0>;
+v0x25b6340_0 .net "clk", 0 0, L_0x25b7f70; 1 drivers
+v0x25b63c0_0 .net "d", 0 0, L_0x25b7de0; 1 drivers
+v0x25b6470_0 .net "q", 0 0, v0x25b61a0_0; 1 drivers
+v0x25b6520_0 .alias "reset", 0 0, v0x25b75e0_0;
+S_0x25b5f80 .scope module, "dff" "D_FF" 4 7, 5 2, S_0x25b5e90;
+ .timescale -9 -10;
+v0x25b60a0_0 .alias "clk", 0 0, v0x25b6340_0;
+v0x25b6120_0 .alias "d", 0 0, v0x25b63c0_0;
+v0x25b61a0_0 .var "q", 0 0;
+v0x25b6240_0 .alias "reset", 0 0, v0x25b75e0_0;
+E_0x25b6070/0 .event negedge, v0x25b60a0_0;
+E_0x25b6070/1 .event posedge, v0x25b5ad0_0;
+E_0x25b6070 .event/or E_0x25b6070/0, E_0x25b6070/1;
+S_0x2591450 .scope module, "tff3" "T_FF" 3 10, 4 3, S_0x258fab0;
+ .timescale -9 -10;
+L_0x25b8060 .functor NOT 1, v0x25b5a30_0, C4<0>, C4<0>, C4<0>;
+v0x25b5b80_0 .net "clk", 0 0, L_0x25b8260; 1 drivers
+v0x25b5c50_0 .net "d", 0 0, L_0x25b8060; 1 drivers
+v0x25b5d00_0 .net "q", 0 0, v0x25b5a30_0; 1 drivers
+v0x25b5db0_0 .alias "reset", 0 0, v0x25b75e0_0;
+S_0x2569690 .scope module, "dff" "D_FF" 4 7, 5 2, S_0x2591450;
+ .timescale -9 -10;
+v0x2569780_0 .alias "clk", 0 0, v0x25b5b80_0;
+v0x25b5990_0 .alias "d", 0 0, v0x25b5c50_0;
+v0x25b5a30_0 .var "q", 0 0;
+v0x25b5ad0_0 .alias "reset", 0 0, v0x25b75e0_0;
+E_0x258ed30/0 .event negedge, v0x2569780_0;
+E_0x258ed30/1 .event posedge, v0x25b5ad0_0;
+E_0x258ed30 .event/or E_0x258ed30/0, E_0x258ed30/1;
+    .scope S_0x25b6e90;
+T_0 ;
+    %wait E_0x25b6f80;
+    %load/v 8, v0x25b7170_0, 1;
+    %jmp/0xz  T_0.0, 8;
+    %set/v v0x25b70d0_0, 0, 1;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/v 8, v0x25b7030_0, 1;
+    %set/v v0x25b70d0_0, 8, 1;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0x25b66c0;
+T_1 ;
+    %wait E_0x25b67b0;
+    %load/v 8, v0x25b69a0_0, 1;
+    %jmp/0xz  T_1.0, 8;
+    %set/v v0x25b6900_0, 0, 1;
+    %jmp T_1.1;
+T_1.0 ;
+    %load/v 8, v0x25b6860_0, 1;
+    %set/v v0x25b6900_0, 8, 1;
+T_1.1 ;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0x25b5f80;
+T_2 ;
+    %wait E_0x25b6070;
+    %load/v 8, v0x25b6240_0, 1;
+    %jmp/0xz  T_2.0, 8;
+    %set/v v0x25b61a0_0, 0, 1;
+    %jmp T_2.1;
+T_2.0 ;
+    %load/v 8, v0x25b6120_0, 1;
+    %set/v v0x25b61a0_0, 8, 1;
+T_2.1 ;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_0x2569690;
+T_3 ;
+    %wait E_0x258ed30;
+    %load/v 8, v0x25b5ad0_0, 1;
+    %jmp/0xz  T_3.0, 8;
+    %set/v v0x25b5a30_0, 0, 1;
+    %jmp T_3.1;
+T_3.0 ;
+    %load/v 8, v0x25b5990_0, 1;
+    %set/v v0x25b5a30_0, 8, 1;
+T_3.1 ;
+    %jmp T_3;
+    .thread T_3;
+    .scope S_0x2590780;
+T_4 ;
+    %set/v v0x25b77f0_0, 1, 1;
+    %set/v v0x25b6a50_0, 0, 1;
+    %vpi_call 2 13 "$dumpfile", "RCC4_test.vcd";
+    %vpi_call 2 14 "$dumpvars";
+    %end;
+    .thread T_4;
+    .scope S_0x2590780;
+T_5 ;
+    %delay 50, 0;
+    %load/v 8, v0x25b6a50_0, 1;
+    %inv 8, 1;
+    %set/v v0x25b6a50_0, 8, 1;
+    %jmp T_5;
+    .thread T_5;
+    .scope S_0x2590780;
+T_6 ;
+    %wait E_0x257e8e0;
+    %delay 100, 0;
+    %set/v v0x25b77f0_0, 0, 1;
+    %delay 2000, 0;
+    %vpi_call 2 24 "$finish";
+    %jmp T_6;
+    .thread T_6;
+# The file index is used to find the file name in the following table.
+:file_names 6;
+    "N/A";
+    "<interactive>";
+    "RCC4_test.v";
+    "./RCC4.v";
+    "./T_FF.v";
+    "./D_FF.v";
