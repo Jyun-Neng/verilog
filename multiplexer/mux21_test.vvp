@@ -1,0 +1,45 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 9;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x1421730 .scope module, "mux21_test" "mux21_test" 2 5;
+ .timescale -8 -9;
+v0x1465360_0 .var "in0", 0 0;
+v0x1465430_0 .var "in1", 0 0;
+RS_0x7fa956de2078 .resolv tri, L_0x1465670, L_0x14657c0, C4<z>, C4<z>;
+v0x14654e0_0 .net8 "out", 0 0, RS_0x7fa956de2078; 2 drivers, strength-aware
+v0x1465590_0 .var "s", 0 0;
+S_0x1421820 .scope module, "mux1" "mux21" 2 8, 3 2, S_0x1421730;
+ .timescale -8 -9;
+L_0x1465670 .functor BUFIF1 1, v0x1465430_0, v0x1465590_0, C4<0>, C4<0>;
+L_0x14657c0 .functor BUFIF0 1, v0x1465360_0, v0x1465590_0, C4<0>, C4<0>;
+v0x1433e50_0 .net "in0", 0 0, v0x1465360_0; 1 drivers
+v0x1465170_0 .net "in1", 0 0, v0x1465430_0; 1 drivers
+v0x1465210_0 .alias "out", 0 0, v0x14654e0_0;
+v0x14652b0_0 .net "s", 0 0, v0x1465590_0; 1 drivers
+    .scope S_0x1421730;
+T_0 ;
+    %set/v v0x1465360_0, 0, 1;
+    %set/v v0x1465430_0, 1, 1;
+    %vpi_call 2 13 "$dumpfile", "mux21_test.vcd";
+    %vpi_call 2 14 "$dumpvars";
+    %end;
+    .thread T_0;
+    .scope S_0x1421730;
+T_1 ;
+    %delay 10, 0;
+    %set/v v0x1465590_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x1465590_0, 1, 1;
+    %delay 10, 0;
+    %vpi_call 2 20 "$finish";
+    %jmp T_1;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "mux21_test.v";
+    "./mux21.v";
