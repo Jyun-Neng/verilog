@@ -1,0 +1,65 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 10;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x2191760 .scope module, "My_XOR_test" "My_XOR_test" 2 5;
+ .timescale -8 -10;
+v0x21d8670_0 .var "a", 0 0;
+v0x21d8720_0 .var "b", 0 0;
+v0x21d87d0_0 .net "out", 0 0, L_0x21d8dc0; 1 drivers
+S_0x21c6c50 .scope module, "Mxor1" "My_XOR" 2 8, 3 4, S_0x2191760;
+ .timescale -8 -10;
+L_0x21d88a0 .functor NOT 1, v0x21d8670_0, C4<0>, C4<0>, C4<0>;
+L_0x21d8950 .functor NOT 1, v0x21d8720_0, C4<0>, C4<0>, C4<0>;
+L_0x21d8a00 .functor AND 1, v0x21d8670_0, L_0x21d8950, C4<1>, C4<1>;
+L_0x21d8b00 .functor AND 1, v0x21d8720_0, L_0x21d88a0, C4<1>, C4<1>;
+v0x21d81d0_0 .net "a", 0 0, v0x21d8670_0; 1 drivers
+v0x21d8290_0 .net "b", 0 0, v0x21d8720_0; 1 drivers
+v0x21d8330_0 .net "n_a", 0 0, L_0x21d88a0; 1 drivers
+v0x21d83d0_0 .net "n_b", 0 0, L_0x21d8950; 1 drivers
+v0x21d8450_0 .alias "out", 0 0, v0x21d87d0_0;
+v0x21d8500_0 .net "x", 0 0, L_0x21d8a00; 1 drivers
+v0x21d85c0_0 .net "y", 0 0, L_0x21d8b00; 1 drivers
+S_0x21c6d40 .scope module, "Mor1" "My_OR" 3 12, 4 2, S_0x21c6c50;
+ .timescale -8 -10;
+L_0x21d8c00 .functor NOT 1, L_0x21d8a00, C4<0>, C4<0>, C4<0>;
+L_0x21d8c60 .functor NOT 1, L_0x21d8b00, C4<0>, C4<0>, C4<0>;
+L_0x21d8cc0 .functor AND 1, L_0x21d8c00, L_0x21d8c60, C4<1>, C4<1>;
+L_0x21d8dc0 .functor NOT 1, L_0x21d8cc0, C4<0>, C4<0>, C4<0>;
+v0x21c6e30_0 .alias "a", 0 0, v0x21d8500_0;
+v0x21d7e60_0 .alias "b", 0 0, v0x21d85c0_0;
+v0x21d7f00_0 .net "n_a", 0 0, L_0x21d8c00; 1 drivers
+v0x21d7fa0_0 .net "n_b", 0 0, L_0x21d8c60; 1 drivers
+v0x21d8050_0 .alias "out", 0 0, v0x21d87d0_0;
+v0x21d80f0_0 .net "y", 0 0, L_0x21d8cc0; 1 drivers
+    .scope S_0x2191760;
+T_0 ;
+    %set/v v0x21d8670_0, 0, 1;
+    %set/v v0x21d8720_0, 0, 1;
+    %vpi_call 2 13 "$dumpfile", "My_XOR_test.vcd";
+    %vpi_call 2 14 "$dumpvars";
+    %end;
+    .thread T_0;
+    .scope S_0x2191760;
+T_1 ;
+    %delay 100, 0;
+    %set/v v0x21d8670_0, 1, 1;
+    %delay 100, 0;
+    %set/v v0x21d8670_0, 0, 1;
+    %delay 100, 0;
+    %set/v v0x21d8720_0, 1, 1;
+    %delay 100, 0;
+    %set/v v0x21d8670_0, 1, 1;
+    %delay 100, 0;
+    %vpi_call 2 22 "$finish";
+    %jmp T_1;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "My_XOR_test.v";
+    "./My_XOR.v";
+    "./My_OR.v";

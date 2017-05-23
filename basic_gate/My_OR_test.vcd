@@ -1,0 +1,57 @@
+$date
+	Tue May 23 17:56:09 2017
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module My_OR_test $end
+$var wire 1 ! out $end
+$var reg 1 " a $end
+$var reg 1 # b $end
+$scope module Mor1 $end
+$var wire 1 $ a $end
+$var wire 1 % b $end
+$var wire 1 & n_a $end
+$var wire 1 ' n_b $end
+$var wire 1 ! out $end
+$var wire 1 ( y $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1(
+1'
+1&
+0%
+0$
+0#
+0"
+0!
+$end
+#100
+1!
+0(
+0&
+1"
+1$
+#200
+0!
+1(
+1&
+0"
+0$
+#300
+1!
+0(
+0'
+1#
+1%
+#400
+0&
+1"
+1$
+#500
