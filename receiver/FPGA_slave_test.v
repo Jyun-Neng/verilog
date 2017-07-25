@@ -1,17 +1,20 @@
 /*
 	FPGA slave test bench.
 */
-`timescale 1ns / 1ps
+`timescale 10ns / 1ns
+`include "FPGA_slave.v"
 module FPGA_slave_test;
 	reg clk, sclk, rst, in_enable;
-	reg [16:0] in_data;
-	reg [4:0] from_ARM;
+	reg [15:0] in_data;
+	reg [3:0] from_ARM;
 	wire dirty, out_enable, to_ARM;
-	wire [8:0] out_data;
+	wire [7:0] out_data;
 	FPGA_slave s0(.clk(clk), .rst(rst), .sclk(sclk), .in_data(in_data), .in_enable(in_enable), .from_ARM(from_ARM),
 		.to_ARM(to_ARM), .out_enable(out_enable), .out_data(out_data), .dirty(dirty));
 
 	initial begin
+		$dumpfile("FPGA_slave_test.vcd");
+		$dumpvars;
 		rst = 0;
 		clk = 0;
 		sclk = 0;
@@ -32,7 +35,7 @@ module FPGA_slave_test;
 		#20 from_ARM = 4'b0110;
 		#50 from_ARM = 4'b1100;
 		#50 from_ARM = 4'b0001;
-
+		#300 $finish;
 	end
 
 endmodule
